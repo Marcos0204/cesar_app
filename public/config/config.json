@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0xF061755F24f296a7566282dD1478d91d6Dd76355",
+  "SCAN_LINK": "https://polygonscan.com/token/0xF061755F24f296a7566282dD1478d91d6Dd76355",
+  "NETWORK": {
+    "NAME": "Polygon",
+    "SYMBOL": "Matic",
+    "ID": 137
+  },
+  "NFT_NAME": "RacingT_NFT",
+  "SYMBOL": "RCNFT",
+  "MAX_SUPPLY": 10,
+  "WEI_COST": 2000000000000000000,
+  "DISPLAY_COST": 2,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/racingt-nft",
+  "SHOW_BACKGROUND": true
+}
