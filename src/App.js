@@ -20,14 +20,15 @@ export const StyledButton = styled.button`
   color: var(--secondary-text);
   width: 100px;
   cursor: pointer;
-  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
+  border-radius: 20px;
+  /* box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   :active {
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-  }
+  } */
 `;
 
 export const StyledRoundButton = styled.button`
@@ -208,16 +209,26 @@ function App() {
             <s.SpacerSmall />
             <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
               
+              <s.Container flex={1} jc={"center"} ai={"center"}>
+                <StyledImg
+                  alt={"example"}
+                  src={"/config/images/example.gif"}
+                  style={{ transform: "scaleX(-1)" }}
+                />
+              </s.Container>
+
+              <s.SpacerLarge />
+              
               <s.Container
-                flex={2}
+                flex={1}
                 jc={"center"}
                 ai={"center"}
                 style={{
                   // backgroundColor: "var(--accent)",
-                  padding: 24,
+                  padding: 15,
                   borderRadius: 0,
-                  border: "0px dashed var(--secondary)",
-                  boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                  // border: "0px dashed var(--secondary)",
+                  // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
                 }}
               >
                 <s.TextTitle
@@ -225,7 +236,7 @@ function App() {
                     textAlign: "center",
                     fontSize: 50,
                     fontWeight: "bold",
-                    color: "var(--accent-text)",
+                    //color: "var(--accent-text)",
                   }}
                 >
                   {data.totalSupply} / {CONFIG.MAX_SUPPLY}
@@ -233,7 +244,7 @@ function App() {
                 <s.TextDescription
                   style={{
                     textAlign: "center",
-                    color: "var(--primary-text)",
+                    //color: "var(--primary-text)",
                   }}
                 >
                   <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
@@ -244,12 +255,16 @@ function App() {
                 {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                   <>
                     <s.TextTitle
-                      style={{ textAlign: "center", color: "var(--accent-text)" }}
+                      style={{ textAlign: "center", 
+                      //color: "var(--accent-text)"
+                    }}
                     >
                       The sale has ended.
                     </s.TextTitle>
                     <s.TextDescription
-                      style={{ textAlign: "center", color: "var(--accent-text)" }}
+                      style={{ textAlign: "center",
+                     // color: "var(--accent-text)"
+                    }}
                     >
                       You can still find {CONFIG.NFT_NAME} on
                     </s.TextDescription>
@@ -261,14 +276,18 @@ function App() {
                 ) : (
                   <>
                     <s.TextTitle
-                      style={{ textAlign: "center", color: "var(--accent-text)" }}
+                      style={{ textAlign: "center",
+                      // color: "var(--accent-text)" 
+                    }}
                     >
                       1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                       {CONFIG.NETWORK.SYMBOL}.
                     </s.TextTitle>
                     <s.SpacerXSmall />
                     <s.TextDescription
-                      style={{ textAlign: "center", color: "var(--accent-text)" }}
+                      style={{ textAlign: "center",
+                      // color: "var(--accent-text)"
+                    }}
                     >
                       Excluding gas fees. <br>
                       </br>
@@ -277,32 +296,40 @@ function App() {
                     <s.SpacerSmall />
                     {blockchain.account === "" ||
                     blockchain.smartContract === null ? (
-                      <s.Container ai={"center"} jc={"center"}>
-                        <s.TextDescription
-                          style={{
-                            textAlign: "center",
-                            color: "var(--accent-text)",
-                          }}
-                        >
-                          Connect to the {CONFIG.NETWORK.NAME} network
-                        </s.TextDescription>
-                        <s.SpacerSmall />
-                        <StyledButton
-                          onClick={(e) => {
-                            e.preventDefault();
-                            dispatch(connect());
-                            getData();
-                          }}
-                        >
-                          CONNECT
-                        </StyledButton>
+
+                      
+                        <s.Container ai={"center"} jc={"center"}>
+                          <s.cardConnect>
+                          <s.TextDescription
+                            style={{
+                              textAlign: "center",
+                              // color: "var(--accent-text)",
+                            }}
+                          >
+                            Connect to the {CONFIG.NETWORK.NAME} network
+                          </s.TextDescription>
+                          <s.SpacerSmall />
+                          <StyledButton
+                            style={{
+                              width: '90%'
+                            }}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              dispatch(connect());
+                              getData();
+                            }}
+                          >
+                            CONNECT
+                          </StyledButton>
+
+                        </s.cardConnect>
                         {blockchain.errorMsg !== "" ? (
                           <>
                             <s.SpacerSmall />
                             <s.TextDescription
                               style={{
                                 textAlign: "center",
-                                color: "var(--accent-text)",
+                                // color: "var(--accent-text)",
                               }}
                             >
                               {blockchain.errorMsg}
@@ -315,7 +342,7 @@ function App() {
                         <s.TextDescription
                           style={{
                             textAlign: "center",
-                            color: "var(--accent-text)",
+                            // color: "var(--accent-text)",
                           }}
                         >
                           {feedback}
@@ -336,7 +363,7 @@ function App() {
                           <s.TextDescription
                             style={{
                               textAlign: "center",
-                              color: "var(--accent-text)",
+                              //color: "var(--accent-text)",
                             }}
                           >
                             {mintAmount}
@@ -371,38 +398,35 @@ function App() {
                 )}
                 <s.SpacerMedium />
               </s.Container>
-              <s.SpacerLarge />
               
-              <s.Container flex={1} jc={"center"} ai={"center"}>
-                <StyledImg
-                  alt={"example"}
-                  src={"/config/images/example.gif"}
-                  style={{ transform: "scaleX(-1)" }}
-                />
-              </s.Container>
+
+
             </ResponsiveWrapper>
             <s.SpacerMedium />
-            <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-              <s.TextDescription
-                style={{
-                  textAlign: "center"
-                }}
-              >
-                Please make sure you are connected to the right network (
-                {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-                Once you make the purchase, you cannot undo this action.
-              </s.TextDescription>
-              <s.SpacerSmall />
-              <s.TextDescription
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-                successfully mint your NFT. We recommend that you don't lower the
-                gas limit.
-              </s.TextDescription>
-            </s.Container>
+            
+              {/* <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+                <s.TextDescription
+                  style={{
+                    textAlign: "center",
+                    margin: '0 auto',
+                  }}
+                >
+                  Please make sure you are connected to the right network (
+                  {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
+                  Once you make the purchase, you cannot undo this action.
+                </s.TextDescription>
+                <s.SpacerSmall />
+                <s.TextDescription
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
+                  successfully mint your NFT. We recommend that you don't lower the
+                  gas limit.
+                </s.TextDescription>
+              </s.Container> */}
+
           </s.Container>
         </s.Screen>
       </Layout>

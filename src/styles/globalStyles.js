@@ -79,3 +79,25 @@ export const StyledClickable = styled.div`
     opacity: 0.6;
   }
 `;
+
+
+export const ContainerInfo = styled.div`
+  background-color: red;
+  display: flex;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
+
+export const cardConnect = styled.div`
+  width: 90%;
+  background-color: #ff00003b;
+  padding: 25px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  border-radius: 13px;
+`

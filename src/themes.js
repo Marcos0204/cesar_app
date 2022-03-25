@@ -14,4 +14,8 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 		background-color: ${(props) => props.theme.body};
 	}
+
+  * {
+        box-sizing: border-box;
+    }
 `;
