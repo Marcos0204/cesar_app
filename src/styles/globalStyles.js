@@ -102,3 +102,13 @@ export const cardConnect = styled.div`
   justify-items: center;
   border-radius: 13px;
 `
+
+export const Info = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  max-width: 70%;
+  padding: 50px;
+  min-width: 320px;
+  
+
+  `

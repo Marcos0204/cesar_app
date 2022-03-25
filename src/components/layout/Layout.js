@@ -45,6 +45,10 @@ const TitleMode = styled.p`
     font-weight: bold;
 `
 
+const Content = styled.div`
+    max-width: 100vw;
+`
+
  
 const Layout = ({children}) => {
     
@@ -89,7 +93,10 @@ const Layout = ({children}) => {
                 >{!darkMode ? 'Dark' : 'Ligth'}</TitleMode>
                </ButtonMode>
             </StyledApp>
+            <Content>
             {children}
+            </Content>
+            
         </>
         // </ThemeProvider>
     )

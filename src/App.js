@@ -404,8 +404,11 @@ function App() {
 
             </ResponsiveWrapper>
             <s.SpacerMedium />
+            <s.Info>
+              
             
-              {/* <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+            
+              <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
                 <s.TextDescription
                   style={{
                     textAlign: "center",
@@ -426,7 +429,9 @@ function App() {
                   successfully mint your NFT. We recommend that you don't lower the
                   gas limit.
                 </s.TextDescription>
-              </s.Container> */}
+              </s.Container>
+
+            </s.Info>
 
           </s.Container>
         </s.Screen>
