@@ -12,12 +12,31 @@ const StyledApp = styled.nav`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  box-shadow: rgb(0 0 0 / 12%) 0px 5px 11px 2px;
 `;
 const ButtonMode = styled.div`
     width: 100px;
     height: 30px;
     background-color: red;
     border-radius: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+const IconMode = styled.div`
+    width: 50px;
+    height: 26px;
+    background-color: black;
+`
+const TitleMode = styled.p`
+    width: 50px;
+    height: 26px;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
 `
 
  
@@ -35,7 +54,6 @@ const Layout = ({children}) => {
             type: 'THEME',
             payload: darkMode
         })
-        console.log(state)
     };
 
 
@@ -48,7 +66,8 @@ const Layout = ({children}) => {
                <ButtonMode 
                 onClick={() => themeToggler()}
                >
-
+                <IconMode></IconMode>
+                <TitleMode>{darkMode ? 'Dark' : 'Ligth'}</TitleMode>
                </ButtonMode>
             </StyledApp>
             {children}

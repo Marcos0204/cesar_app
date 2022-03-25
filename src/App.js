@@ -204,7 +204,7 @@ function App() {
         <s.Screen>
           <s.Container
           >
-            <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+            {/* <StyledLogo alt={"logo"} src={"/config/images/logo.png"} /> */}
             <s.SpacerSmall />
             <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
               
@@ -385,8 +385,7 @@ function App() {
             <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
               <s.TextDescription
                 style={{
-                  textAlign: "center",
-                  color: "var(--primary-text)",
+                  textAlign: "center"
                 }}
               >
                 Please make sure you are connected to the right network (
@@ -397,7 +396,6 @@ function App() {
               <s.TextDescription
                 style={{
                   textAlign: "center",
-                  color: "var(--primary-text)",
                 }}
               >
                 We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to

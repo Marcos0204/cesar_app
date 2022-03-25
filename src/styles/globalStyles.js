@@ -5,11 +5,13 @@ export const Screen = styled.div`
   /* background-color: var(--primary);
   background-image: ${({ image }) => (image ? `url(${image})` : "none")}; */
   background-size: cover;
+  color: ${(props) => props.theme.fontColor};
   background-position: center;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
 `;
 
 // Used for providing space between components
@@ -48,10 +50,11 @@ export const Container = styled.div`
   background-image: ${({ image }) => (image ? `url(${image})` : "none")};
   background-size: cover;
   background-position: center;
+  color: ${(props) => props.theme.fontColor};
 `;
 
 export const TextTitle = styled.p`
-  color: var(--primary-text);
+  color: ${(props) => props.theme.fontColor};
   font-size: 22px;
   font-weight: 500;
   line-height: 1.6;
@@ -59,7 +62,7 @@ export const TextTitle = styled.p`
 `;
 
 export const TextSubTitle = styled.p`
-  color: var(--primary-text);
+   color: ${(props) => props.theme.fontColor};
   font-size: 18px;
   line-height: 1.6;
 `;
@@ -68,6 +71,7 @@ export const TextDescription = styled.p`
   color: var(--primary-text);
   font-size: 20px;
   line-height: 1.6;
+  color: ${(props) => props.theme.fontColor};
 `;
 
 export const StyledClickable = styled.div`
