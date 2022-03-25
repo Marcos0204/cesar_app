@@ -17,21 +17,22 @@ const StyledApp = styled.nav`
 const ButtonMode = styled.div`
     width: 100px;
     height: 30px;
-    background-color: red;
+
     border-radius: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2px 3px;
 `
 const IconMode = styled.div`
     width: 50px;
     height: 26px;
     background-color: black;
+    border-radius: 50%;
 `
 const TitleMode = styled.p`
     width: 50px;
     height: 26px;
-    background-color: brown;
     display: flex;
     justify-content: center;
     align-items: center;

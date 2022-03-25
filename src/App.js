@@ -208,13 +208,12 @@ function App() {
             <s.SpacerSmall />
             <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
               
-              
               <s.Container
                 flex={2}
                 jc={"center"}
                 ai={"center"}
                 style={{
-                  backgroundColor: "var(--accent)",
+                  // backgroundColor: "var(--accent)",
                   padding: 24,
                   borderRadius: 0,
                   border: "0px dashed var(--secondary)",
@@ -373,6 +372,7 @@ function App() {
                 <s.SpacerMedium />
               </s.Container>
               <s.SpacerLarge />
+              
               <s.Container flex={1} jc={"center"} ai={"center"}>
                 <StyledImg
                   alt={"example"}
