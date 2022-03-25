@@ -21,6 +21,7 @@ export const StyledButton = styled.button`
   width: 100px;
   cursor: pointer;
   border-radius: 20px;
+  background-image: linear-gradient(111.85deg, #07a1cf 16.8%, #2fac66 84.07%);
   /* box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
@@ -303,7 +304,7 @@ function App() {
                           <s.TextDescription
                             style={{
                               textAlign: "center",
-                              // color: "var(--accent-text)",
+                              color: "var(--accent-text)",
                             }}
                           >
                             Connect to the {CONFIG.NETWORK.NAME} network

@@ -93,7 +93,8 @@ export const ContainerInfo = styled.div`
 
 export const cardConnect = styled.div`
   width: 90%;
-  background-color: #ff00003b;
+  //background: linear-gradient(128deg, #241733, #201a28, #201a28);
+  background: linear-gradient(244deg, #342245, #241d2e, #241d2e);
   padding: 25px 10px;
   display: flex;
   flex-direction: column;
