@@ -9,6 +9,11 @@ import logo from './logo.png'
 import Git from '../gif/MiniApeCoinSlow.gif'
 
 
+const Section = styled.div`
+    height:60px;
+    width:100vw;
+    background: red
+`
 const StyledApp = styled.nav`
   color: ${(props) => props.theme.fontColor};
   height:80px;
@@ -107,9 +112,10 @@ const Layout = ({children}) => {
                 >{!darkMode ? 'Dark' : 'Ligth'}</TitleMode>
                </ButtonMode>
             </StyledApp>
-            <Content>
+           
             {children}
-            </Content>
+           
+
             
         </>
     )

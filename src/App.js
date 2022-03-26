@@ -70,6 +70,8 @@ export const ResponsiveWrapper = styled.div`
   }
 `;
 
+
+
 export const StyledLogo = styled.img`
   width: 200px;
   @media (min-width: 767px) {
@@ -405,15 +407,40 @@ function App() {
 
             </ResponsiveWrapper>
             <s.SpacerMedium />
-            <s.Info>
+
+
+            <ResponsiveWrapper flex={1} style={{ padding: 24 }} test
+               style={{
+                textAlign: "center",
+                margin: '0 auto',
+                marginTop:'-100px'
+              }}
+            >
               
-              <Gif />
-            
-              {/* <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+              <s.Container flex={1} jc={"center"} ai={"center"}>
+               <Gif/>
+              </s.Container>
+
+              <s.SpacerLarge />
+              
+              <s.Container
+                flex={1}
+                jc={"center"}
+                ai={"center"}
+                style={{
+                  // backgroundColor: "var(--accent)",
+                  padding: 15,
+                  borderRadius: 0,
+                  // border: "0px dashed var(--secondary)",
+                  // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                }}
+              >
+                <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
                 <s.TextDescription
                   style={{
                     textAlign: "center",
                     margin: '0 auto',
+                    // marginTop:'-10px'
                   }}
                 >
                   Please make sure you are connected to the right network (
@@ -430,9 +457,13 @@ function App() {
                   successfully mint your NFT. We recommend that you don't lower the
                   gas limit.
                 </s.TextDescription>
-              </s.Container> */}
+              </s.Container>
 
-            </s.Info>
+              </s.Container>
+              
+
+
+            </ResponsiveWrapper>
 
           </s.Container>
         </s.Screen>
