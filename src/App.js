@@ -6,6 +6,7 @@ import * as s from "./styles/globalStyles";
 import styled, { ThemeProvider } from 'styled-components'
 import Layout from './components/layout/Layout'
 import { lightTheme, darkTheme, GlobalStyles } from './themes'
+import Gif from "./components/gif/Gif";
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -406,9 +407,9 @@ function App() {
             <s.SpacerMedium />
             <s.Info>
               
+              <Gif />
             
-            
-              <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+              {/* <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
                 <s.TextDescription
                   style={{
                     textAlign: "center",
@@ -429,7 +430,7 @@ function App() {
                   successfully mint your NFT. We recommend that you don't lower the
                   gas limit.
                 </s.TextDescription>
-              </s.Container>
+              </s.Container> */}
 
             </s.Info>
 

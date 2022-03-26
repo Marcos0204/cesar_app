@@ -106,9 +106,12 @@ export const cardConnect = styled.div`
 export const Info = styled.div`
   margin: 0 auto;
   text-align: center;
-  max-width: 70%;
+  max-height: 500px;
+  min-width: 320px;
+  width: 60%;
+  max-width: 600px;
   padding: 50px;
   min-width: 320px;
-  
+  margin-top: -150px;
 
   `

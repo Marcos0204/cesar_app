@@ -4,18 +4,32 @@ import { useSelector, useDispatch }  from 'react-redux'
 import styled, { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme, GlobalStyles } from '../../themes'
 
+import logo from './logo.png'
+
+import Git from '../gif/MiniApeCoinSlow.gif'
+
+
 const StyledApp = styled.nav`
   color: ${(props) => props.theme.fontColor};
   height:80px;
   width:100vw;
   padding: 10px 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   box-shadow: rgb(0 0 0 / 12%) 0px 5px 11px 2px;
   
  // background:linear-gradient(111.85deg, #07a1cf 16.8%, #2fac66 84.07%);
 `;
+const Logo = styled.div`
+    width: 70px;
+    height: 60px;
+`
+const Img = styled.img`
+    width: 100%;
+    height: 100%;
+`
+
 const ButtonMode = styled.div`
     width: 150px;
     height: 40px;
@@ -68,15 +82,15 @@ const Layout = ({children}) => {
     const backgroundNav = !darkMode && 'linear-gradient(111.85deg, #07a1cf 16.8%, #2fac66 84.07%)';
 
     return (
-        // <ThemeProvider theme={state ? lightTheme : darkTheme}>
-        //     <GlobalStyles />
         <>
             <StyledApp
                 style={{
                     background :backgroundNav
                 }}
             >
-               {/* <button onClick={() => themeToggler()}>cambiar tema</button> */}
+                <Logo>
+                    <Img src={logo} alt='logo' />
+                </Logo>
                <ButtonMode 
                 onClick={() => themeToggler()}
                 darkMode={darkMode}
@@ -98,7 +112,6 @@ const Layout = ({children}) => {
             </Content>
             
         </>
-        // </ThemeProvider>
     )
 }
 
