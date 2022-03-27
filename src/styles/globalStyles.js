@@ -92,7 +92,7 @@ export const ContainerInfo = styled.div`
 `
 
 export const cardConnect = styled.div`
-  width: 90%;
+  width: 80%;
   //background: linear-gradient(128deg, #241733, #201a28, #201a28);
   background: linear-gradient(244deg, #342245, #241d2e, #241d2e);
   padding: 25px 10px;
@@ -101,6 +101,9 @@ export const cardConnect = styled.div`
   align-items: center;
   justify-items: center;
   border-radius: 13px;
+  @media (min-width: 767px) {
+    width: 250px;
+  }
 `
 
 export const Info = styled.div`

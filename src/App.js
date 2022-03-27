@@ -7,12 +7,16 @@ import styled, { ThemeProvider } from 'styled-components'
 import Layout from './components/layout/Layout'
 import { lightTheme, darkTheme, GlobalStyles } from './themes'
 import Gif from "./components/gif/Gif";
-import { ContainerApp, ContainerItem, ContainerGif } from './App.Element'
+import { ContainerApp, ContainerItem, ContainerGif,
+          StyledImg,
+          ITemCard,
+          ITemGif
+} from './App.Element'
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export const StyledButton = styled.button`
+  export const StyledButton = styled.button`
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -20,7 +24,7 @@ export const StyledButton = styled.button`
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
-  width: 100px;
+  width: 20px;
   cursor: pointer;
   border-radius: 20px;
   background-image: linear-gradient(111.85deg, #07a1cf 16.8%, #2fac66 84.07%);
@@ -82,25 +86,11 @@ export const StyledLogo = styled.img`
   transition: height 0.5s;
 `;
 
-export const StyledImg = styled.img`
-  box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 0px dashed var(--secondary);
-  background-color: var(--accent);
-  border-radius: 10%;
-  width: 200px;
-  @media (min-width: 900px) {
-    width: 250px;
-  }
-  @media (min-width: 1000px) {
-    width: 300px;
-  }
-  transition: width 0.5s;
-`;
-
 export const StyledLink = styled.a`
   color: var(--secondary);
   text-decoration: none;
 `;
+
 
 function App() {
   const dispatch = useDispatch();
@@ -208,8 +198,216 @@ function App() {
       <GlobalStyles />
       <Layout>
         <ContainerApp>
-          <ContainerGif></ContainerGif>
-          <ContainerItem></ContainerItem>
+          <ContainerGif>
+
+            <StyledImg
+                alt={"example"}
+                src={"/config/images/DogeRa.png"}
+                style={{ transform: "scaleX(-1)" }}
+              />
+          </ContainerGif>
+          <ContainerItem>
+
+            <ITemCard>
+                <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>          
+                  <s.Container
+                    flex={1}
+                    jc={"center"}
+                    ai={"center"}
+                    style={{
+                      // backgroundColor: "var(--accent)",
+                      padding: 15,
+                      borderRadius: 0,
+                      // border: "0px dashed var(--secondary)",
+                      // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                    }}
+                  >
+                    {/* <s.TextTitle
+                      style={{
+                        textAlign: "center",
+                        fontSize: 50,
+                        fontWeight: "bold",
+                        //color: "var(--accent-text)",
+                      }}
+                    >
+                      {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+                    </s.TextTitle> */}
+                    <s.TextTitle
+                       style={{
+                        textAlign: "center",
+                        fontSize: 50,
+                        fontWeight: "bold",
+                        //color: "var(--accent-text)",
+                      }}
+                    >
+                      VEX Cheetahs
+                    </s.TextTitle>
+                    <s.TextDescription
+                      style={{
+                        textAlign: "center",
+                        //color: "var(--primary-text)",
+                      }}
+                    >
+                      <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
+                        {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                      </StyledLink>
+                    </s.TextDescription>
+                    <s.SpacerSmall />
+                    {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                      <>
+                        <s.TextTitle
+                          style={{ textAlign: "center", 
+                          //color: "var(--accent-text)"
+                        }}
+                        >
+                          The sale has ended.
+                        </s.TextTitle>
+                        <s.TextDescription
+                          style={{ textAlign: "center",
+                        // color: "var(--accent-text)"
+                        }}
+                        >
+                          You can still find {CONFIG.NFT_NAME} on
+                        </s.TextDescription>
+                        <s.SpacerSmall />
+                        <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
+                          {CONFIG.MARKETPLACE}
+                        </StyledLink>
+                      </>
+                    ) : (
+                      <>
+                        <s.TextTitle
+                          style={{ textAlign: "center",
+                          // color: "var(--accent-text)" 
+                        }}
+                        >
+                          1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+                          {CONFIG.NETWORK.SYMBOL}.
+                        </s.TextTitle>
+                        <s.SpacerXSmall />
+                        <s.TextDescription
+                          style={{ textAlign: "center",
+                          // color: "var(--accent-text)"
+                        }}
+                        >
+                          Excluding gas fees. <br>
+                          </br>
+                          Mint start 25 March 2022.
+                        </s.TextDescription>
+                        <s.SpacerSmall />
+                        {blockchain.account === "" ||
+                        blockchain.smartContract === null ? (
+
+                          
+                            <s.Container ai={"center"} jc={"center"}>
+                              <s.cardConnect>
+                              <s.TextDescription
+                                style={{
+                                  textAlign: "center",
+                                  color: "var(--accent-text)",
+                                }}
+                              >
+                                Connect to the {CONFIG.NETWORK.NAME} network
+                              </s.TextDescription>
+                              <s.SpacerSmall />
+                              <StyledButton
+                                style={{
+                                  width: '90%'
+                                }}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  dispatch(connect());
+                                  getData();
+                                }}
+                              >
+                                CONNECT
+                              </StyledButton>
+
+                            </s.cardConnect>
+                            {blockchain.errorMsg !== "" ? (
+                              <>
+                                <s.SpacerSmall />
+                                <s.TextDescription
+                                  style={{
+                                    textAlign: "center",
+                                    // color: "var(--accent-text)",
+                                  }}
+                                >
+                                  {blockchain.errorMsg}
+                                </s.TextDescription>
+                              </>
+                            ) : null}
+                          </s.Container>
+                        ) : (
+                          <>
+                            <s.TextDescription
+                              style={{
+                                textAlign: "center",
+                                // color: "var(--accent-text)",
+                              }}
+                            >
+                              {feedback}
+                            </s.TextDescription>
+                            <s.SpacerMedium />
+                            <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                              <StyledRoundButton
+                                style={{ lineHeight: 0.4 }}
+                                disabled={claimingNft ? 1 : 0}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  decrementMintAmount();
+                                }}
+                              >
+                                -
+                              </StyledRoundButton>
+                              <s.SpacerMedium />
+                              <s.TextDescription
+                                style={{
+                                  textAlign: "center",
+                                  //color: "var(--accent-text)",
+                                }}
+                              >
+                                {mintAmount}
+                              </s.TextDescription>
+                              <s.SpacerMedium />
+                              <StyledRoundButton
+                                disabled={claimingNft ? 1 : 0}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  incrementMintAmount();
+                                }}
+                              >
+                                +
+                              </StyledRoundButton>
+                            </s.Container>
+                            <s.SpacerSmall />
+                            <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                              <StyledButton
+                                disabled={claimingNft ? 1 : 0}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  claimNFTs();
+                                  getData();
+                                }}
+                              >
+                                {claimingNft ? "BUSY" : "BUY"}
+                              </StyledButton>
+                            </s.Container>
+                          </>
+                        )}
+                      </>
+                    )}
+                    <s.SpacerMedium />
+                  </s.Container>
+                  
+
+
+                </ResponsiveWrapper>
+            </ITemCard>
+            <ITemGif>
+
+            </ITemGif>
+          </ContainerItem>
         </ContainerApp>
       </Layout>
     </ThemeProvider>
