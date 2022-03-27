@@ -91,6 +91,37 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
+const WrapperInfo = styled.div`
+  
+  display: flex;
+  flex-direction: column-reverse;
+  
+  @media (max-width: 768px) {
+    margin-top: 110px;
+    /* background-color:blue; */
+
+    
+  }
+  @media (min-width: 768px) {
+    margin-top:0px;
+    /* background-color:red; */
+    flex-direction: row;
+    margin-top: -30px;
+
+    
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  /* @media (max-width: 700px) {
+    margin-top:80px
+    
+  } */
+`
+const Paragraph = styled.p`
+
+`
+
 
 function App() {
   const dispatch = useDispatch();
@@ -209,7 +240,10 @@ function App() {
           <ContainerItem>
 
             <ITemCard>
-                <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>          
+                <ResponsiveWrapper
+                  flex={1}
+                  // style={{ padding: 24 }}
+                  test>          
                   <s.Container
                     flex={1}
                     jc={"center"}
@@ -222,16 +256,7 @@ function App() {
                       // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
                     }}
                   >
-                    {/* <s.TextTitle
-                      style={{
-                        textAlign: "center",
-                        fontSize: 50,
-                        fontWeight: "bold",
-                        //color: "var(--accent-text)",
-                      }}
-                    >
-                      {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-                    </s.TextTitle> */}
+                    
                     <s.TextTitle
                        style={{
                         textAlign: "center",
@@ -241,6 +266,16 @@ function App() {
                       }}
                     >
                       VEX Cheetahs
+                    </s.TextTitle>
+                    <s.TextTitle
+                      style={{
+                        textAlign: "center",
+                        fontSize: 50,
+                        fontWeight: "bold",
+                        //color: "var(--accent-text)",
+                      }}
+                    >
+                      {data.totalSupply} / {CONFIG.MAX_SUPPLY}
                     </s.TextTitle>
                     <s.TextDescription
                       style={{
@@ -405,10 +440,109 @@ function App() {
                 </ResponsiveWrapper>
             </ITemCard>
             <ITemGif>
+            <s.Container
+                flex={1}
+                jc={"center"}
+                ai={"center"}
+                style={{
+                  // backgroundColor: "var(--accent)",
+                  padding: 15,
+                  borderRadius: 0,
+                  // border: "0px dashed var(--secondary)",
+                  // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                }}
+              >
+                <s.Container jc={"center"} ai={"center"} style={{ width: "100%" }}>
+                <s.TextDescription
+                  style={{
+                    textAlign: "center",
+                    margin: '0 auto',
+                    marginTop:'-40px'
+                  }}
+                >
+                  Please make sure you are connected to the right network (
+                  {CONFIG.NETWORK.NAME} Mainnet) and the correct address.
+               
+                </s.TextDescription>
+                <s.SpacerSmall />
+              
+              </s.Container>
 
+              </s.Container>
+              <Gif/>
             </ITemGif>
           </ContainerItem>
+          
+
+          
+
+
+
         </ContainerApp>
+
+        
+        <WrapperInfo flex={1} 
+                    //style={{ padding: 24 }}
+                    test
+              //  style={{
+              //   textAlign: "center",
+              //   margin: '0 auto',
+              //   marginTop:'-100px'
+              // }}
+            >
+              
+              <s.Container flex={1} jc={"center"} ai={"center"}
+                style={{
+                  
+                }}
+              >
+               <Gif/>
+              </s.Container>
+
+              <s.SpacerLarge />
+              
+              <s.Container
+                flex={1}
+                jc={"center"}
+                ai={"center"}
+                style={{
+                  // backgroundColor: "var(--accent)",
+                  padding: 15,
+                  borderRadius: 0,
+                  // border: "0px dashed var(--secondary)",
+                  // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                }}
+              >
+                <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+                <s.TextDescription
+                  style={{
+                    textAlign: "center",
+                    margin: '0 auto',
+                    // marginTop:'-10px'
+                  }}
+                >
+                  Please make sure you are connected to the right network (
+                  {CONFIG.NETWORK.NAME} Mainnet) and the correct address.
+                  {/* Please note:
+                  Once you make the purchase, you cannot undo this action. */}
+                </s.TextDescription>
+                <s.SpacerSmall />
+                {/* <s.TextDescription
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
+                  successfully mint your NFT. We recommend that you don't lower the
+                  gas limit.
+                </s.TextDescription> */}
+              </s.Container>
+
+              </s.Container>
+              
+
+
+            </WrapperInfo>
       </Layout>
     </ThemeProvider>
   );

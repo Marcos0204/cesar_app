@@ -408,13 +408,13 @@ function App() {
             </ResponsiveWrapper>
             <s.SpacerMedium />
 
-
+            
             <ResponsiveWrapper flex={1} style={{ padding: 24 }} test
-               style={{
-                textAlign: "center",
-                margin: '0 auto',
-                marginTop:'-100px'
-              }}
+              //  style={{
+              //   textAlign: "center",
+              //   margin: '0 auto',
+              //   marginTop:'-100px'
+              // }}
             >
               
               <s.Container flex={1} jc={"center"} ai={"center"}>

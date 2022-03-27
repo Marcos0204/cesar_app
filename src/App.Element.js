@@ -20,7 +20,11 @@ export const ContainerGif = styled.div`
   height:  100Vh;
   width: 100%;
   @media (min-width: 767px) {
-    width: 47%;
+    width: 50%;
+    max-height:1000px;
+  }
+  @media (min-width: 1024px) {
+    width: 60%;
     max-height:1000px;
   }
   /* background: blue; */
@@ -30,15 +34,16 @@ export const ContainerItem = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  
   @media (min-width: 767px) {
-    width: 47%;
+    width: 45%;
     max-height:1000px;
-
+    padding-top: -30px;
     
   }
   @media (min-width: 1024px) {
-    
-    padding-top: 70px;
+    width: 40%;
+    //padding-top: 70px;
     
   }
 `
@@ -50,8 +55,12 @@ export const ITemCard = styled.div`
 `
 export const ITemGif = styled.div`
   width: 100%;
-  /* height: 30%; */
-  /* background-color: salmon; */
+  height: 100%;
+ 
+  display: none;
+  @media (min-width: 1024px) {
+    display: inline-block;
+  }
 `
 
 

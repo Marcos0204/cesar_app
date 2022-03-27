@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import gif from './MiniApeCoinSlow.gif'
 
 const Container = styled.div`
-  background-color: red;
-  height: 30%;
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const Img = styled.img`
     width: 50%;
@@ -15,12 +15,22 @@ const Img = styled.img`
       width: 80%;
     height: 80%;
   }
+  @media (min-width: 1024px) {
+    margin-top: -30px;
+    width: 30%;
+    height: 30%;
+  }
+  @media (min-width: 1224px) {
+    margin-top: -30px;
+    width: 60%;
+    height: 60%;
+  }
 `
 const Gif = () => {
   return (
-    <div>
+    <Container>
         <Img src={gif} alt='gif'/>
-    </div>
+    </Container>
   )
 }
 
