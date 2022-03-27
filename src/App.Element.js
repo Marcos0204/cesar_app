@@ -44,7 +44,7 @@ export const ContainerItem = styled.div`
   @media (min-width: 1024px) {
     width: 40%;
     //padding-top: 70px;
-    
+  
   }
 `
 
